@@ -1,0 +1,32 @@
+Database provider: PostgreSQL
+
+Tables:
+
+USERS
+- user_id: serial, primary key
+- login: varchar(64), unique
+- email: varchar(128), unique
+- password_hash: varchar(128)
+- theme_preference: boolean
+- created_at: timestamp
+
+HABITS
+- habit_id: serial, primary key
+- user_id: integer, foreign key -> users(user_id)
+- title: varchar(120)
+- description: text
+- period_n: integer (1,7,30)
+- current_points: integer (0-60)
+- egg_color_hex: varchar(7)
+- last_check_in: timestamp
+- is_hatched: boolean
+
+HABIT_LOGS
+- log_id: serial, primary key
+- habit_id: integer, foreign key -> habits(habit_id)
+- points_added: integer
+- log_timestamp: timestamp
+
+Relations:
+users 1 --- N habits
+habits 1 --- N habit_logs
