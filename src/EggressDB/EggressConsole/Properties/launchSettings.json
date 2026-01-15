@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "EggressConsole": {
+      "commandName": "Project",
+      "commandLineArgs": "print\r\n"
+    }
+  }
+}
